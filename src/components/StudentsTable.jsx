@@ -1,16 +1,14 @@
 import React from 'react';
-
 export default function StudentsTable({ data }) {
   const studentsList = data.data.map((item) => (
     <tr className='students-table__row' key={item.idST}>
       <td className='students-table__id'>{item.idST}</td>
       <td className='students-table__name'>{item.nameST}</td>
       <td className='students-table__last-name'>{item.lastNameST}</td>
-      <td className='students-table__acitve'>{item.activeST}</td>
+      <td className='students-table__acitve'>{item.activeST ? 'Sí' : 'No'}</td>
       <td className='students-table__buttons'>coming soon...</td>
     </tr>
   ));
-
   const tableValues = (
     <tr>
       <td>ID</td>
