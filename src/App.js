@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<ShowTable />} />
         <Route path='/edit/:id' element={<EditStudent />} />
-        <Route path='addStudent' element={<AddStudent />} />
+        <Route path='add-student' element={<AddStudent />} />
       </Routes>
     </div>
   );

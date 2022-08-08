@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 import StudentsTable from '../components/StudentsTable';
 import { getAllStudents } from '../functions/services';
 
 export default function ShowTable() {
   const [dataDB, setDataDB] = useState(null);
+  const navigate = useNavigate();
   useEffect(() => {
     getAllStudents(setDataDB);
   }, []);
@@ -19,6 +22,11 @@ export default function ShowTable() {
     <>
       <h1>CRUD with MySQ, Express, Node, React</h1>
       {setPageContent(dataDB)}
+      <Button
+        text='Nuevo estudiante'
+        className='add-student'
+        onClick={() => navigate('/add-student')}
+      />
     </>
   );
 }
