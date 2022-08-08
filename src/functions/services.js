@@ -27,12 +27,10 @@ const createStudent = async (name, lastName, active) => {
     });
   } catch (error) {}
 };
-const updateStudent = async (id, name, lastName, active) => {
+const updateStudent = async (id, changes) => {
   try {
     await axios.put(URI + id, {
-      nameST: name,
-      lastNameST: lastName,
-      activeST: active,
+      ...changes,
     });
   } catch (error) {}
 };
