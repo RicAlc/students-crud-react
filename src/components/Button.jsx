@@ -1,9 +1,10 @@
 import React from 'react';
+import { PlaceholderButton } from 'react-bootstrap';
 
-export default function Button({ onClick, text, className }) {
+export default function man({ onClick, text, className }) {
   return (
-    <div onClick={onClick} className={className + ' btn'}>
+    <PlaceholderButton onClick={onClick} className={className + ' btn'}>
       {text}
-    </div>
+    </PlaceholderButton>
   );
 }

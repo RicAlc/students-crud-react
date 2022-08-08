@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../components/Button';
+import { Button } from 'react-bootstrap';
 import StudentsTable from '../components/StudentsTable';
 import { getAllStudents } from '../functions/services';
 
 export default function ShowTable() {
   const [dataDB, setDataDB] = useState(null);
-  const navigate = useNavigate();
   useEffect(() => {
     getAllStudents(setDataDB);
   }, []);
@@ -20,13 +18,16 @@ export default function ShowTable() {
   }
   return (
     <>
-      <h1>CRUD with MySQ, Express, Node, React</h1>
-      {setPageContent(dataDB)}
-      <Button
-        text='Nuevo estudiante'
-        className='add-student'
-        onClick={() => navigate('/add-student')}
-      />
+      <div className='wrapper my-5'>
+        <h2 className='text-light'>Lista de alumnos</h2>
+      </div>
+      <div className='container bg-light rounded p-3'>
+        <h2>Estudiantes registrados</h2>
+        {setPageContent(dataDB)}
+        <Button href='/add-student' size='lg'>
+          Añadir estudiante
+        </Button>
+      </div>
     </>
   );
 }

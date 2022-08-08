@@ -1,51 +1,45 @@
 import React from 'react';
+import { Button, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { deleteStudent } from '../functions/services';
-import Button from './Button';
+import { TbEdit, TbTrash } from 'react-icons/tb';
 
 export default function StudentsTable({ data }) {
   const navigate = useNavigate();
-
+  const deleteItem = async (id) => {
+    await deleteStudent(id);
+    navigate(0);
+    console.log('navigated');
+  };
   const studentsList = data.data.map((item) => (
     <tr className='students-table__row' key={item.idST}>
       <td className='students-table__id'>{item.idST}</td>
       <td className='students-table__name'>{item.nameST}</td>
       <td className='students-table__last-name'>{item.lastNameST}</td>
       <td className='students-table__acitve'>{item.activeST ? 'Sí' : 'No'}</td>
-      <td className='students-table__buttons'>
-        <Button
-          text='Editar'
-          className='edit'
-          onClick={() => navigate(`/edit/${item.idST}`)}
-        />
-        <Button
-          text='Eliminar'
-          className='delete'
-          onClick={() => deleteStudent(item.idST)}
-        />
+      <td className='students-table__buttons d-flex justify-content-around align-items-center'>
+        <Button href={`/edit/${item.idST}`}>
+          <TbEdit />
+        </Button>
+        <Button onClick={() => deleteItem(item.idST)} variant='danger'>
+          <TbTrash />
+        </Button>
       </td>
     </tr>
   ));
-  const tableValues = (
-    <tr>
-      <td>ID</td>
-      <td>Nombre</td>
-      <td>Apellido</td>
-      <td>Cursando</td>
-      <td>Acciones</td>
-    </tr>
-  );
+
   return (
-    <table className='students-table'>
-      <thead>
+    <Table striped bordered hover size='sm' responsive>
+      <thead className='table-dark'>
         <tr>
-          <th colSpan='5'>Estudiantes</th>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cursando</th>
+          <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
-        {tableValues}
-        {studentsList}
-      </tbody>
-    </table>
+      <tbody>{studentsList}</tbody>
+    </Table>
   );
 }

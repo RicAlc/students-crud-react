@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { createStudent } from '../functions/services';
 
@@ -18,56 +19,62 @@ export default function AddStudent() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
+    console.log(inputValue);
   };
   return (
-    <div className='add-container'>
-      <h2 className='add-container__title'>addar estudiante</h2>
-      <form onSubmit={handleSubmit} className='add-form' method='POST'>
-        <fieldset className='add-form__fieldset'>
-          <label htmlFor='nameST' className='add-form__label name-label'>
-            Nombre
-          </label>
-          <input
-            type='text'
-            required
-            name='nameST'
-            className='add-form__input name-input'
-            id='nameST'
-            pattern='[A-Za-z]{2,20}'
-            onChange={handleInputChange}
-          />
-          <label
-            htmlFor='lastNameST'
-            className='add-form__label lastname-label'
-          >
-            Apellido
-          </label>
-          <input
-            type='text'
-            className='add-form__input lastname-input'
-            required
-            name='lastNameST'
-            id='lastNameST'
-            pattern='[A-Za-z]{2,20}'
-            onChange={handleInputChange}
-          />
-          <label htmlFor='active' className='add-form__label active-label'>
-            Cursando actualmente
-          </label>
-          <select
-            id='active'
-            name='activeST'
-            required
-            className='add-form__input active-select'
-            onChange={handleInputChange}
-          >
-            <option value=''>SELECT</option>
-            <option value={true}>Sí</option>
-            <option value={false}>No</option>
-          </select>
-        </fieldset>
-        <button type='submit'>Guardar</button>
-      </form>
-    </div>
+    <>
+      <h2 className='edit-container__title my-5 text-light'>
+        Agregar estudiante
+      </h2>
+      <div className='container bg-light rounded p-3 mw-25'>
+        <Form onSubmit={handleSubmit} method='POST'>
+          <Form.Group>
+            <Form.Label>Nombre</Form.Label>
+            <Form.Control
+              type='text'
+              name='nameST'
+              required
+              pattern='[A-Za-z]{2,20}'
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor='lastNameST'>Apellido</Form.Label>
+            <Form.Control
+              type='text'
+              name='lastNameST'
+              required
+              pattern='[A-Za-z]{2,20}'
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor='active'>Cursando actualmente</Form.Label>
+            <Form.Select
+              id='active'
+              name='activeST'
+              required
+              onChange={handleInputChange}
+            >
+              <option value=''>SELECT</option>
+              <option value={true}>Sí</option>
+              <option value={false}>No</option>
+            </Form.Select>
+          </Form.Group>
+          <div className='d-flex justify-content-between'>
+            <Button type='submit' className='m-2'>
+              Agregar
+            </Button>
+            <Button
+              onClick={() => navigate('/')}
+              variant='outline-dark'
+              className='m-2'
+            >
+              Volver
+            </Button>
+          </div>
+        </Form>
+      </div>
+    </>
   );
 }

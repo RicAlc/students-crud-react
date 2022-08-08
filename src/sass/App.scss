@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap';
+body {
+  background: #282c34;
+}
+.navbar {
+  width: 100vw;
+  background-color: #20232a;
+  color: #fff;
+  height: 70px;
+  padding-inline: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  img {
+    margin-right: 1rem;
+    height: 50px;
+  }
+}
