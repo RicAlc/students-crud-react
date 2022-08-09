@@ -18,9 +18,7 @@ export default function ShowTable() {
   }
   return (
     <>
-      <div className='wrapper my-5'>
-        <h2 className='text-light'>Lista de alumnos</h2>
-      </div>
+      <h2 className='text-light'>Lista de alumnos</h2>
       <div className='container bg-light rounded p-3'>
         <h2>Estudiantes registrados</h2>
         {setPageContent(dataDB)}

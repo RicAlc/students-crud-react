@@ -9,7 +9,6 @@ export default function StudentsTable({ data }) {
   const deleteItem = async (id) => {
     await deleteStudent(id);
     navigate(0);
-    console.log('navigated');
   };
   const studentsList = data.data.map((item) => (
     <tr className='students-table__row' key={item.idST}>
