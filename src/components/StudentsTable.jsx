@@ -6,10 +6,14 @@ import { TbEdit, TbTrash } from 'react-icons/tb';
 
 export default function StudentsTable({ data }) {
   const navigate = useNavigate();
+
+  // Manda la peticion de borrar al estudiante y redirecciona a la pagina principal
   const deleteItem = async (id) => {
     await deleteStudent(id);
     navigate(0);
   };
+
+  // Crea un tablerow por cada elemento del array de estudiantes rescatados de la DB
   const studentsList = data.data.map((item) => (
     <tr className='students-table__row' key={item.idST}>
       <td className='students-table__id'>{item.idST}</td>

@@ -1,7 +1,9 @@
 import axios from 'axios';
-
 const URI = 'http://localhost:4000/students/';
 
+// Metodos HTTP
+
+// Rescatar todos los estudiantes
 const getAllStudents = async (state) => {
   try {
     const res = await axios.get(URI);
@@ -10,6 +12,8 @@ const getAllStudents = async (state) => {
     console.error(error);
   }
 };
+
+// Rescatar solo un estudiante
 const getStudent = async (id, state) => {
   try {
     const res = await axios.get(URI + id);
@@ -18,6 +22,8 @@ const getStudent = async (id, state) => {
     console.error(error);
   }
 };
+
+// Agregar un nuevo estudiante
 const createStudent = async (name, lastName, active) => {
   try {
     await axios.post(URI, {
@@ -27,6 +33,8 @@ const createStudent = async (name, lastName, active) => {
     });
   } catch (error) {}
 };
+
+// Actualizar datos de estudiante
 const updateStudent = async (id, changes) => {
   try {
     await axios.put(URI + id, {
@@ -34,6 +42,8 @@ const updateStudent = async (id, changes) => {
     });
   } catch (error) {}
 };
+
+// Borrar un estudante
 const deleteStudent = async (id) => {
   try {
     await axios.delete(URI + id);

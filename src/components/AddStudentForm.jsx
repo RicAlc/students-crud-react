@@ -8,6 +8,8 @@ export default function AddStudentForm() {
   const [inputValue, setInputValue] = useState({});
   const navigate = useNavigate();
 
+  // Envia la peticion de crear con los datos de los inputs
+  // y redirecciona a la pagina principal
   const handleSubmit = async (event) => {
     event.preventDefault();
     await createStudent(
@@ -17,10 +19,13 @@ export default function AddStudentForm() {
     );
     navigate('/');
   };
+
+  // Rescata los inputs en un objeto cuando estos cambian su valor
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
+
   return (
     <div className='container bg-light rounded p-3 mw-25'>
       <Form onSubmit={handleSubmit} method='POST'>

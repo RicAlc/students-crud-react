@@ -11,13 +11,19 @@ export default function EditStudentForm() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  // Hace la peticion del estudiante con el ID y guarda la respuesta en studentInfo
   useEffect(() => {
     getStudent(Number(id), setStudentInfo);
   }, [id]);
+
+  // Rescata los inputs en un objeto cuando estos cambian su valor
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
+
+  // Manda la peticion de crear etudiante con los datos que fueron modificados renderiza
+  // mensaje de confirmacion y redirecciona a la pagina pricncipal
   const handleSubmit = async (event) => {
     event.preventDefault();
     await updateStudent(studentInfo.data[0].idST, inputValue);
@@ -26,6 +32,7 @@ export default function EditStudentForm() {
       navigate('/');
     }, 1000);
   };
+
   return (
     <div className='container bg-light rounded p-3'>
       <Form onSubmit={handleSubmit} method='PUT'>
