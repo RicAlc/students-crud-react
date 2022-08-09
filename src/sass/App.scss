@@ -2,8 +2,10 @@
 body {
   background: #282c34;
 }
+.App {
+  min-height: calc(100vh - 70px);
+}
 .navbar {
-  width: 100vw;
   background-color: #20232a;
   color: #fff;
   height: 70px;

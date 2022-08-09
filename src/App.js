@@ -7,10 +7,7 @@ import './sass/App.scss';
 
 function App() {
   return (
-    <div
-      className='App d-flex flex-column align-items-center p-3'
-      style={{ height: '100vh' }}
-    >
+    <div className='App d-flex flex-column align-items-center p-3'>
       <Routes>
         <Route path='/' element={<ShowTable />} />
         <Route path='/edit/:id' element={<EditStudent />} />
