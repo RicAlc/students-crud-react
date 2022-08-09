@@ -1,6 +1,6 @@
 # (CRUD) Student regitration - React
 
-This is the front-end build of Student registration CRUD, the project register, modify, and delete data from students in de DB
+This is the front-end build for a student registration CRUD project; the project read, register, modify and delete data from a students DB
 
 ## The challenge ✅
 
