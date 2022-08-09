@@ -28,7 +28,6 @@ Users should be able to:
 ## Built with 🧰 🛠️
 
 - React
-- Sass
 - Bootstrap
 - Reactstrap
 - React icons
