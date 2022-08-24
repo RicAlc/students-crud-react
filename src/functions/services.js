@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URI = 'http://localhost:4005/students/';
+const URI = 'https://students-crud-node-production.up.railway.app/students';
 
 // Metodos HTTP
 
