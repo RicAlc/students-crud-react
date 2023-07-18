@@ -1,4 +1,4 @@
-# (CRUD) Student regitration - React
+# (CRUD) Student Register - React
 
 This is the front-end build for a student registration CRUD project; the project read, register, modify and delete data from a students DB
 
